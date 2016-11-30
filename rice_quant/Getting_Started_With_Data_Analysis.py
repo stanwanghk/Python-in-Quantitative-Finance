@@ -1,6 +1,4 @@
 import pandas as pd
-
-# import the module for statistical inference
 from scipy import stats as ss
 
 # import the module for plotting
