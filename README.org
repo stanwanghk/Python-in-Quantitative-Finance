@@ -1,9 +1,0 @@
-* python_in_quantitative_finance
-by stan
-** assignment#1
-deadline <2016.12.18>
-
-
-** assignment#2
-
-** assignment#3

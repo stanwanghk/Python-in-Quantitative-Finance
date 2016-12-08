@@ -31,3 +31,24 @@ print("a4: {0}".format(str(a4)))
 
 a5 = np.random.random((2,2))
 print("a5: {0}".format(str(a5)))
+
+#index of the array
+a = np.array([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
+b = a[:2,1:3]
+print(a[0,1])
+b[0,0] = 77
+print(a[0,1]) #b[0,0] includes the same data as a[0,1]
+
+print("a: \n {0}, shape: {1}".format(str(a),a.shape))
+
+row_r1 = a[1,:]
+row_r2 = a[1:2,:]
+
+print("row_r1: {0}, shape {1}".format(str(row_r1),row_r1.shape))
+print("row_r2: {0}, shape {1}".format(str(row_r2),row_r2.shape))
+
+col_r1 = a[:,1]
+col_r2 = a[:,1:2]
+
+print("col_r1: {0}, shape {1}".format(str(row_r1),row_r1.shape))
+print("col_r2: {0}, shape {1}".format(str(row_r2),row_r2.shape))
