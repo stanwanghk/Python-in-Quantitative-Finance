@@ -71,7 +71,8 @@ T = 1
 r = 0.05
 n = 5
 stepdiscount = exp(-r * T/n)
-derivative = SimplePut(strike,T)
+derivative = SimpleCall(strike,T)
+# derivative = SimplePut(strike,T)
 G = bgoptiongrid(s,T,r,sigma,n)
 SetEuropeanPayoff(G,n,derivative)
 price_euro = EuropeanBackwardInduction(G,n,stepdiscount)
@@ -79,6 +80,7 @@ price_amer = AmericanBackwardInduction(G,n,stepdiscount)
 print (price_euro)
 print (price_amer)
 
+#Remark: for call options, the European type and the American type have the same price if the underlying asset does not pay enough dividends; but for the put value, the American type is more valueable than the European type.
 
 # another way to code
 def binomialcall(s,x,T,r,sigma,n,

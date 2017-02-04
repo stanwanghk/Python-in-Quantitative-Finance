@@ -78,4 +78,4 @@ def tri_option_price(S        # stock price
     option_price = backward_induction(G,numsim,stepdiscount,derivative,e_a)
     return option_price
 
-print(tri_option_price(100,100,1,255,0.1,0.05,1,1))
+print(tri_option_price(100,100,1,255,0.1,0.05,0,0))

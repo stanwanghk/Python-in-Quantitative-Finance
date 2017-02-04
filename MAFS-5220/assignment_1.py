@@ -87,5 +87,5 @@ def MC_deltaHedging_Call(S               # stock  price
     portfolioValue =sp.mean(portfolio)
     return portfolioValue
 
-print("the result from Monte Carlo for delta hedging strategy is {}"
-      .format(MC_deltaHedging_Call(100,100,1,0.1,0.1,0.05,100,360)))
+print("the result from Monte Carlo for delta hedging strategy is {}".format(MC_deltaHedging_Call(100,100,1,0.1,0.1,0.05,1,360)))
+# Remark: we can NOT make or loss money by using the delta hedging strategy under the assumptions of Black-Sholes model.
