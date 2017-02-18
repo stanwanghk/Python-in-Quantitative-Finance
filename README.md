@@ -3,8 +3,10 @@ as a student majoring in Financial Mathematics, i think that python is a very us
 
 
 # rice_quant
-rice_quant is a website that i can learn about stock transaction strategy. but firstly, i should learn these basic lib
-in python, such as numpy, scipy, pandas, matplotlib.
+rice_quant is a website that i can learn about stock transaction strategy. but firstly, i need to learn these basic libs in python, such as numpy, scipy, pandas, matplotlib.
 
-# MAFS_5220
-in this course i will do some homework about quantitative in python, and a final project.
+# MAFS_5220 Quantitative and statistics analysis
+In this course, I will do some homework about quantitative in python, and a final project in Machine Learning.
+
+# MAFS_5040 Quantitative methods for fixed-income instruments
+there are some codes to calculate the yield, DV01, duration, convexity etc.
