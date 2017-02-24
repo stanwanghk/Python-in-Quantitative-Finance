@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from math import log
 
-a=0.018
-b=0.00125
+a=0.02
+b=0.001
 dt=0.25
 T=30
 
