@@ -40,8 +40,10 @@ def get_qq_news(url):
 
         # get the content of the article
         tag = soup.body.find(id="Cnt-Main-Article-QQ")
+        print(tag)
         article.content = filter_tags(repr(tag.get_text()))
-        return article.content
+        store_article(article)
+        return article
     except:
         get_kuaibao_news(url)
 
@@ -53,10 +55,10 @@ def get_content_news(url):
         soup = BeautifulSoup(html, "html.parser")
         tag = soup.body.find(id="Cnt-Main-Article-QQ")
         if tag is []:
-            get_kuaibao_news(url)
+            content = 'NOT GET THE ARTICLE'
         else:
             content = filter_tags(repr(tag.get_text()))
-            return content
+        return content
     except:
         # get_kuaibao_news(url)
         store_error_url(url)
@@ -117,5 +119,5 @@ def get_company_news(exchange='sh',  # = sz or sh
     print('finish: ', code)
 
 
-get_company_news('sz', '000002')
+# get_company_news('sz', '000002')
 
