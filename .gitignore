@@ -1,6 +1,7 @@
 useless.*
 *.sqlite
-_pycache_/
 *.csv
 *~.*
 *.txt
+# /MAFS-5220/Volatility Forecast in SSE&SHE with Machine Learning and Sentimental Analysis/financial_news_crawler/__pycache__
+*.pyc
