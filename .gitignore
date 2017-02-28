@@ -1,0 +1,6 @@
+useless.*
+*.sqlite
+_pycache_/
+*.csv
+*~.*
+*.txt
