@@ -8,7 +8,7 @@ import re
 import demjson
 import time
 from datetime import datetime
-from prewash_tags import filter_tags
+from prewash_tags import remove_tags
 from store_data import store_article, store_error_url
 
 
@@ -39,9 +39,11 @@ def get_qq_news(url):
                 break
 
         # get the content of the article
-        tag = soup.body.find(id="Cnt-Main-Article-QQ")
-        print(tag)
-        article.content = filter_tags(repr(tag.get_text()))
+        tag = soup.body.find("div", id="Cnt-Main-Article-QQ", bosszone="content")
+        # print(tag.attrs)
+        article.content = remove_tags(repr(tag))
+        print('here')
+        print(article.content)
         store_article(article)
         return article
     except:
@@ -50,14 +52,17 @@ def get_qq_news(url):
 
 def get_content_news(url):
     try:
+        # print('here')
         html = urllib.request.urlopen(url).read()
         html = html.decode('gb2312', 'ignore')
         soup = BeautifulSoup(html, "html.parser")
-        tag = soup.body.find(id="Cnt-Main-Article-QQ")
+        tag = soup.body.find("div", id="Cnt-Main-Article-QQ", bosszone="content")
+        # print(tag)
         if tag is []:
             content = 'NOT GET THE ARTICLE'
         else:
-            content = filter_tags(repr(tag.get_text()))
+            content = remove_tags(repr(tag))
+            # print(content)
         return content
     except:
         # get_kuaibao_news(url)
@@ -91,7 +96,7 @@ def get_company_news(exchange='sh',  # = sz or sh
               finance_news&symbol="+exchange+code+"&"
     page_number = 1
     page = "page={}&"
-    max_number = 2  # update the max number after getting the url
+    max_number = 4  # update the max number after getting the url
     t = "_du_r_t={}"
     url_page = js_url + page.format(1)+t.format(time.time())
 
@@ -114,10 +119,12 @@ def get_company_news(exchange='sh',  # = sz or sh
                 load_article(data)
         if end:
             break
+        print('finish: stock {} page.{}'.format(code, page_number))
         page_number += 1
         url_page = js_url + page.format(page_number) + t.format(time.time())
     print('finish: ', code)
 
 
-# get_company_news('sz', '000002')
-
+get_company_news('sz', '000002')
+# get_content_news("http://finance.qq.com/a/20170227/064212.htm")
+# print('end')
