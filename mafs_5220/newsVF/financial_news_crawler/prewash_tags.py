@@ -6,6 +6,17 @@ import re
 # http://www.cnblogs.com/rails3/archive/2012/08/14/2636780.html
 
 
+def remove_adv(s):
+    advs = set()
+    advs.add('牛人大赛】快来腾讯证券官号（qqzixuangu）参赛啦！点击“话费天天送”，话费、苹果电脑大派送，更有三重奖等你拿！')
+    advs.add('更多精彩内容欢迎搜索关注微信公众号：腾讯财经（financeapp）。')
+    advs.add('最牛操盘手策略曝光投顾大师赛：大跌依旧抓涨停跟叶智华解套')
+    for adv in advs:
+        re_adv = re.compile(adv)
+        s = re_adv.sub('', s)
+    return s
+
+
 def remove_tags(htmlstr):
     # print(htmlstr)
     re_cdata = re.compile('//<!\[CDATA\[[^>]*//\]\]>', re.I)  # 匹配CDATA
@@ -28,5 +39,5 @@ def remove_tags(htmlstr):
     s = blank_line.sub('\n', s)
     return s
 
-# data = "<strong>脱胎于深发展，收入结构持续优化。</strong>"
+# data = """<span class=\"a_source\" bosszone=\"jgname\"><a target=\"_blank\" href=\"http://www.ccstock.cn/\">证券日报</a></span>"""
 # print(remove_tags(data))

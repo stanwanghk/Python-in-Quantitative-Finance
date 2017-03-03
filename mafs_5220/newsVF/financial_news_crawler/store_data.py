@@ -14,8 +14,9 @@ def store_article(article):
     # content_file.write(article.source + '\r\n')
     content_file.write(article.newsid + '\r\n')
     content_file.write(article.url + '\r\n')
+    content_file.write(article.source + '\r\n')
     if article.content is not None:
-        content_file.write(article.content)
+        content_file.write(article.content + '\r\n')
     content_file.write('\r\n')
     content_file.close()
 

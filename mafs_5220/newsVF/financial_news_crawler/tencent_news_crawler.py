@@ -53,10 +53,10 @@ def get_qq_news(url):
 def get_content_news(url):
     try:
         # print('here')
-        source = 'Tencent'
         html = urllib.request.urlopen(url).read()
         html = html.decode('gb2312', 'ignore')
         soup = BeautifulSoup(html, "html.parser")
+        # find and prewash the content of article
         tag = soup.body.find("div", id="Cnt-Main-Article-QQ", bosszone="content")
         # print(tag)
         if tag is []:
@@ -64,9 +64,12 @@ def get_content_news(url):
         else:
             content = remove_tags(repr(tag))
             # print(content)
+        # find and prewash the source of article
+        data = soup.body.find('span', bosszone="jgname")
+        source = remove_tags(repr(data))
         return (source, content)
     except:
-        # get_kuaibao_news(url)
+        print('error')
         store_error_url(url)
 
 
@@ -99,6 +102,7 @@ def get_kuaibao_news(url):
 
 
 def load_article(js_data):
+    # print(js_data)
     article = News.News()
     article.url = js_data['url']
     article.title = js_data['title']
@@ -146,14 +150,15 @@ def get_company_news(code='sh600000',                    # the company's code
                 number_of_news += 1
         if end:
             break
-        print('finish: stock {} page.{}'.format(code, page_number))
+        print('finish: stock {} page{}'.format(code, page_number))
         page_number += 1
         url_page = js_url + page.format(page_number) + t.format(time.time())
     print('finish: ', code)
     return number_of_news
 
 
-print(get_company_news('sz000015'))
-# url = "http://finance.qq.com/products/portfolio/news_zixuangu.htm?id=kuaibao-20170204C02LMH00&s=w&from=web&r"
+# print(get_company_news('sz000001'))
+# url = "http://stock.qq.com/a/20170210/003454.htm"
+# print(get_content_news(url))
 # print(get_kuaibao_news(url))
 # print('end')
