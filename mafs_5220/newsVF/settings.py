@@ -1,27 +1,61 @@
 """setting the saving data file's path."""
 # coding=utf-8
+from datetime import datetime
 
-sqlite_path = '/home/stan_wp/newsVF/data/VF.sqlite'
-error_path = '/home/stan_wp/newsVF/data/error.txt'
-article_path = '/home/stan_wp/newsVF/data/article.txt'
-number_path = '/home/stan_wp/newsVF/data/numberOfNews.txt'
+home_path = '/home/stan_wp/newsVF/'
+# show where to store data
+sqlite_path = 'data/VF.sqlite'
+error_path = 'data/error.txt'
+article_path = 'data/article.txt'
+number_path = 'data/numberOfNews.txt'
+
+# show where to get related data
+SHE_path = 'source/SHE.csv'
+SSE_path = 'source/SSE.csv'
+adv_path = 'source/adv.txt'
+HowNet = 'source/HowNet'
+
+# time setting
+startdate = datetime(2017, 1, 1)
+enddate = datetime(2016, 1, 1)
+time_format = "%Y-%m-%d"
 
 
 def get_article_path():
     """"Return the test article path."""
-    return article_path
+    return home_path + article_path
 
 
 def get_sqlite_path():
     """Return the Database path."""
-    return sqlite_path
+    return home_path + sqlite_path
 
 
 def get_error_path():
     """"Return the file's path,which contains the error url."""
-    return error_path
+    return home_path + error_path
 
 
 def get_number_path():
     """"Return the file that saves the number of news for given company."""
-    return number_path
+    return home_path + number_path
+
+
+def get_exchange_path():
+    return home_path + SHE_path, home_path + SSE_path
+
+
+def get_sentimental_word():
+    return home_path + HowNet
+
+
+def get_date():
+    return (startdate, enddate)
+
+
+def get_time_format():
+    return time_format
+
+
+def get_adv_path():
+    return home_path + adv_path;

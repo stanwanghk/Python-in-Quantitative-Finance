@@ -1,13 +1,13 @@
 # coding: utf-8
 
 
-# define the structure of the finanical news
 class News(object):
     def __init__(self):
-        self.success = True
+        """The structure of the finanical news."""
         self.url = None
         self.title = None
         self.newsid = None
+        self.companyid = None
         self.author = None
         self.pubdate = None
         self.about = None
