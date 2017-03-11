@@ -6,7 +6,7 @@ as a student majoring in Financial Mathematics, i think that python is a very us
 In this course, I will do some homework about quantitative in python, and a final project in Machine Learning.
 ### Volatility Forecast in SSE&SHE with Machine Learning and Sentimental Analysis
 There is a huge need for effective forecasting of financial risk, which is usually implied by the related volatility. Hence the concept of financial volatility, a required parameter for pricing many kinds of financial assets and derivatives (i.e. options), is critical. I now pursue a reasonable mathematical model to achieve efficient prediction of financial volatility. And I realized that online information can have a substantial effect on the trading price or trading volume of a stock or index. In summary, I will forecast volatility, relying partly on the sentiment analysis of online information, using a GARCH-based SVM approach.The basic architecture of this approach is in Figure 0.1. 
-![Alt text](https://github.com/stanwanghk/Python-in-Quantitative-Finance/blob/master/MAFS-5220/Volatility%20Forecast%20in%20SSE%26SHE%20with%20Machine%20Learning%20and%20Sentimental%20Analysis/flowchart.png)
+![Alt text](https://github.com/stanwanghk/Python-in-Quantitative-Finance/blob/master/mafs_5220/newsVF/flowchart.png)
 
 #### stage 1 financial news and stock crawling
 
