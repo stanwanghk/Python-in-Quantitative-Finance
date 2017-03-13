@@ -23,7 +23,7 @@ def store_article_sqlite(article):
     # print('starting store')
     # print(article.content)
     if article.content is not "None":
-        conn = sqlite3.connect(settings.get_sqlite_path(), timeout=10)
+        conn = sqlite3.connect(settings.get_sqlite_path(), timeout=5)
         cur = conn.cursor()
         # source table
         cur.execute(''' SELECT id FROM Source WHERE source = ?''', (article.source,))
@@ -50,7 +50,7 @@ def store_article_sqlite(article):
                         VALUES(?, ?)''', (news_table_id[0], article.companyid, ))
         conn.commit()
     print('{} stored over'.format(article.title))
-    time.sleep(5)
+    # time.sleep(5)
 
 
 def store_error_text(text):
