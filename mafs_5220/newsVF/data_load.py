@@ -46,6 +46,7 @@ def reset_sqlite():
         DROP TABLE IF EXISTS News;
         DROP TABLE IF EXISTS Source;
         DROP TABLE IF EXISTS Company_News;
+        DROP TABLE IF EXISTS Stock;
         ''')
     cur.executescript('''
                 CREATE TABLE  Companies (

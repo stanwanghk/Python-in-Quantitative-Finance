@@ -21,9 +21,14 @@ def get_company_stock(code='sh600000',
         data.insert(0, 'code', code)
         conn = sqlite3.connect(settings.get_sqlite_path())
         cur = conn.cursor()
-        cur.execute(''' SELECT code FROM Stock WHERE code = ?''',(code,))
+        cur.execute(''' SELECT name FROM sqlite_master WHERE name='Stock'
+             ''')
         exists = cur.fetchone()
-        # print(exists)
+        print(exists)
+        if exists is not None:
+            cur.execute(''' SELECT code FROM Stock WHERE code = ?''',(code,))
+            exists = cur.fetchone()
+        print(exists)
         if exists is None:
             data.to_sql('Stock', conn, if_exists='append')
         conn.commit()
