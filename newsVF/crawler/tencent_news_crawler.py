@@ -174,6 +174,5 @@ def get_company_news(code='sh600000',                    # the company's code
         print('finish: ', code)
         return number_of_news
     except Exception as e:
-        print(e)
-        print('loding error for {}'.format(code))
-        sn.store_error_text('{} exits an error'.format(code))
+        print(e,code)
+        sn.store_error_text('news loading error: ' + code)
