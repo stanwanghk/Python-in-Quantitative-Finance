@@ -12,9 +12,10 @@ cur = conn.cursor()
 cur.execute(''' SELECT code FROM Companies''')
 raws = cur.fetchall()
 companies = []
+
 for raw in raws:
     companies.append(raw[0])
-# print(companies)
+print(companies)
 
 dl.news_load(companies)
 

@@ -13,7 +13,7 @@ number_path = 'data/numberOfNews.txt'
 SHE_path = 'source/SHE.csv'
 SSE_path = 'source/SSE.csv'
 adv_path = 'source/adv.txt'
-HowNet = 'source/HowNet'
+HowNet = 'source/HowNet/'
 
 # time setting
 startdate = datetime(2017, 1, 1)
@@ -45,10 +45,6 @@ def get_exchange_path():
     return home_path + SHE_path, home_path + SSE_path
 
 
-def get_sentimental_word():
-    return home_path + HowNet
-
-
 def get_date():
     return (startdate, enddate)
 
@@ -59,3 +55,15 @@ def get_time_format():
 
 def get_adv_path():
     return home_path + adv_path;
+
+
+def get_sentiment_files(name):
+    fname={}
+    fname['positive'] = '正面情感词语（中文）.txt'
+    fname['negative'] = '负面情感词语（中文）.txt'
+    fname['level'] = '程度级别词语（中文）.txt'
+    fname['argue'] = '主张词语（中文）.txt'
+    fname['support'] = '正面评价词语（中文）.txt'
+    fname['object'] = '负面评价词语（中文）.txt'
+    return home_path + HowNet + fname[name]
+
