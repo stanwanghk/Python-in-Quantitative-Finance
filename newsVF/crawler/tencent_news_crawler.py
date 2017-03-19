@@ -12,7 +12,7 @@ import crawler.News as News
 import crawler.prewash_tags as pt
 
 
-def get_qq_news(url):
+def get_qq_news(code, url):
     try:
         html = urllib.request.urlopen(url).read()
         html = html.decode('gb2312', 'ignore')
@@ -34,7 +34,8 @@ def get_qq_news(url):
                 article.title = py_data['title']
                 article.newsid = py_data['id']
                 article.pubdate = py_data['pubtime']
-                article.source = "tencent" + py_data['site_cname']
+                article.source = "腾讯" + py_data['site_cname']
+                article.companyid = code
                 break
 
         # get the content of the article
@@ -42,7 +43,6 @@ def get_qq_news(url):
         # print(tag.attrs)
         article.content = pt.remove_tags(repr(tag))
         # print('here')
-        # print(article.content)
         sn.store_article_sqlite(article)
         return article
     except:
@@ -50,7 +50,7 @@ def get_qq_news(url):
         sn.store_error_url(url)
 
 
-def get_content_news(url):
+def get_content_news(url, code):
     try:
         # print('here')
         html = urllib.request.urlopen(url).read()
@@ -71,10 +71,10 @@ def get_content_news(url):
         return (source, content)
     except:
         print('error: ', url)
-        sn.store_error_text(url)
+        sn.store_error_text(code + ':' + url)
 
 
-def get_kuaibao_news(url):
+def get_kuaibao_news(url, code):
     try:
         js_url = "http://ifzq.gtimg.cn/appstock/news/newsContent/content?{}"
         re_id = re.compile('id=kuaibao-\w+')
@@ -99,7 +99,7 @@ def get_kuaibao_news(url):
         return (source, content)
     except:
         print('error: ', url)
-        sn.store_error_text(url)
+        sn.store_error_text(code + ':' + url)
 
 
 def load_article(js_data, code):
@@ -111,9 +111,9 @@ def load_article(js_data, code):
     article.newsid = js_data['uid']
     article.pubdate = js_data['datetime']
     if "kuaibao" in article.url:
-        (article.source, article.content) = get_kuaibao_news(article.url)
+        (article.source, article.content) = get_kuaibao_news(article.url, code)
     else:
-        (article.source, article.content) = get_content_news(article.url)
+        (article.source, article.content) = get_content_news(article.url, code)
     sn.store_article_sqlite(article)
 
 
@@ -139,6 +139,9 @@ def get_company_news(code='sh600000',                    # the company's code
 
             re_content = re.compile('^var.*?{')
             json_data = re_content.sub('{', rawdata)
+            # print(json_data)
+
+            # to correct the json data when lack of \ or invalid\
             i = 0
             while i <= 100:
                 try:
@@ -146,16 +149,26 @@ def get_company_news(code='sh600000',                    # the company's code
                     js = json.loads(json_data)   # try to parse...
                     break                    # parsing worked -> exit loop
                 except Exception as e:
-                    # "Expecting , delimiter: line 34 column 54 (char 1158)"
+                    # print(e)
                     # position of unexpected character after '"'
                     unexp = int(re.findall(r'\(char (\d+)\)', str(e))[0])
-                    # position of unescaped '"' before that
-                    unesc = json_data.rfind(r'"', 0, unexp)
-                    json_data = json_data[:unesc] + r'\"' + json_data[unesc + 1:]
-                    # position of correspondig closing '"' (+2 for inserted '\')
-                    closg = json_data.find(r'"', unesc + 2)
-                    json_data = json_data[:closg] + r'\"' + json_data[closg + 1:]
+                    error = str(e)
+                    if 'delimiter' in error:
+                        # "Expecting , delimiter: line 34 column 54 (char 1158)"
+                        # # position of unescaped '"' before that
+                        # unesc = json_data.rfind(r'"', 0, unexp)
+                        # json_data = json_data[:unesc] + r'\"' + json_data[unesc + 1:]
+                        # # position of correspondig closing '"' (+2 for inserted '\')
+                        # closg = json_data.find(r'"', unesc + 2)
+                        # json_data = json_data[:closg] + r'\"' + json_data[closg + 1:]
+                        json_data = json_data[: unexp - 1] + json_data[unexp:]
+                    elif 'Invalid' in error:
+                        # print("here")
+                        # Invalid \escape: line 1 column 8487 (char 8486)
+                        json_data = json_data[: unexp] + json_data[unexp + 1:]
+            # print(json_data)
             js = json.loads(json_data)
+            # print(js)
 
             for data in js['data']['data']:
                 news_time = datetime.strptime(data['datetime'], date_format)
@@ -174,5 +187,5 @@ def get_company_news(code='sh600000',                    # the company's code
         print('finish: ', code)
         return number_of_news
     except Exception as e:
-        print(e,code)
+        print(e, code)
         sn.store_error_text('news loading error: ' + code)

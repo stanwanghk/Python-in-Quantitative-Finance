@@ -1,7 +1,7 @@
 # coding=utf-8
 import sqlite3
 import settings
-import time
+# import time
 
 
 def store_article_txt(article):
@@ -44,10 +44,14 @@ def store_article_sqlite(article):
         cur.execute(''' SELECT id FROM News WHERE news_id = ?''', (article.newsid,))
         news_table_id = cur.fetchone()
         cur.execute(''' SELECT company_id FROM Company_News WHERE news_table_id = ?''', (news_table_id[0],))
-        related_company = cur.fetchone()
-        if related_company is None or article.companyid not in related_company:
+        related_companies = cur.fetchall()
+        related_company = []
+        for com in related_companies:
+            related_company.append(com[0])
+
+        if (related_company is None) or (article.companyid not in related_company):
             cur.execute(''' INSERT INTO Company_News (news_table_id, company_id)
-                        VALUES(?, ?)''', (news_table_id[0], article.companyid, ))
+                    VALUES(?, ?)''', (news_table_id[0], article.companyid,))
         conn.commit()
     print('{} stored over'.format(article.title))
     # time.sleep(5)
