@@ -7,11 +7,14 @@ home_path = '/home/stan_wp/newsVF/'
 sqlite_path = 'data/VF.sqlite'
 error_path = 'data/error.txt'
 article_path = 'data/article.txt'
-number_path = 'data/numberOfNews.txt'
+number_path = 'data/numberOfNews.csv'
+sample_path = 'data/sample.txt'
 
 # show where to get related data
 SHE_path = 'source/SHE.csv'
+SHE_sample = 'source/SHE_sample.csv'
 SSE_path = 'source/SSE.csv'
+SSE_sample = 'source/SSE_sample.csv'
 adv_path = 'source/adv.txt'
 HowNet = 'source/HowNet/'
 
@@ -45,6 +48,9 @@ def get_exchange_path():
     return home_path + SHE_path, home_path + SSE_path
 
 
+def get_sample_data():
+    return home_path + SSE_sample, home_path + SHE_sample
+
 def get_date():
     return (startdate, enddate)
 
@@ -56,6 +62,9 @@ def get_time_format():
 def get_adv_path():
     return home_path + adv_path;
 
+
+def get_sample_path():
+    return home_path + sample_path
 
 def get_sentiment_files(name):
     fname={}
