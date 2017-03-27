@@ -38,18 +38,17 @@ def number_of_news():
 
     companies = []
     # count the number of news of all companies
-    # cur.execute(''' SELECT code FROM Companies''')
-    # raws = cur.fetchall()
-    # companies = []
-    # for raw in raws:
-    #     companies.append(raw[0])
+    cur.execute(''' SELECT code FROM Companies''')
+    raws = cur.fetchall()
+    for raw in raws:
+        companies.append(raw[0])
 
     # count the number of news of given sample
-    fsample = settings.get_sample_path()
-    samples = open(fsample)
-    for line in samples:
-        raw = line.split(',')
-        companies.append(raw[0])
+    # fsample = settings.get_sample_path()
+    # samples = open(fsample)
+    # for line in samples:
+    #     raw = line.split(',')
+    #     companies.append(raw[0])
 
     total_number = 0
     total_nocontent = 0
@@ -64,9 +63,9 @@ def number_of_news():
             # print(newsid)
             cur.execute(''' SELECT content FROM News WHERE id = ?''', (newsid[0],))
             text = cur.fetchone()[0]
-            if text is None:
+            if text == 'None':
                 none += 1
-            elif text is 'NO CONTENT':
+            elif text == 'NO CONTENT':
                 nocontent += 1
             else:
                 number += 1

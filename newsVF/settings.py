@@ -9,6 +9,7 @@ error_path = 'data/error.txt'
 article_path = 'data/article.txt'
 number_path = 'data/numberOfNews.csv'
 sample_path = 'data/sample.txt'
+value_path = 'data/value.csv'
 
 # show where to get related data
 SHE_path = 'source/SHE.csv'
@@ -16,7 +17,7 @@ SHE_sample = 'source/SHE_sample.csv'
 SSE_path = 'source/SSE.csv'
 SSE_sample = 'source/SSE_sample.csv'
 adv_path = 'source/adv.txt'
-HowNet = 'source/HowNet/'
+HowNet = 'source/wordsbase/chinese/'
 
 # time setting
 startdate = datetime(2017, 1, 1)
@@ -66,13 +67,18 @@ def get_adv_path():
 def get_sample_path():
     return home_path + sample_path
 
+
 def get_sentiment_files(name):
     fname={}
-    fname['positive'] = '正面情感词语（中文）.txt'
-    fname['negative'] = '负面情感词语（中文）.txt'
-    fname['level'] = '程度级别词语（中文）.txt'
-    fname['argue'] = '主张词语（中文）.txt'
-    fname['support'] = '正面评价词语（中文）.txt'
-    fname['object'] = '负面评价词语（中文）.txt'
+    # fname['positive'] = '正面情感词语（中文）.txt'
+    # fname['negative'] = '负面情感词语（中文）.txt'
+    fname['positive'] = 'ntusd-positive.txt'
+    fname['negative'] = 'ntusd-negative.txt'
+    fname['modifiers'] = '程度级别词语（中文）.txt'
+    # fname['privative'] = '负面评价词语（中文）.txt'
+    fname['privative'] = '中文否定词.txt'
     return home_path + HowNet + fname[name]
 
+
+def get_value_path():
+    return home_path + value_path
