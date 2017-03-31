@@ -1,0 +1,343 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"except",
+				"Exception\tclass"
+			],
+			[
+				"co",
+				"companies\tstatement"
+			],
+			[
+				"number",
+				"number_of_news"
+			],
+			[
+				"re_s",
+				"re_strong\tstatement"
+			],
+			[
+				"article",
+				"article_path\tstatement"
+			],
+			[
+				"error",
+				"error_path\tstatement"
+			],
+			[
+				"l",
+				"loads\tfunction"
+			],
+			[
+				"js",
+				"js_url\tstatement"
+			],
+			[
+				"url",
+				"urlopen"
+			],
+			[
+				"get",
+				"get_kuaibao_news\tfunction"
+			],
+			[
+				"id",
+				"id_news"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"find",
+				"findall"
+			],
+			[
+				"num",
+				"numberOfNews"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "mafs_5040/mc_bond_options.py",
+			"settings":
+			{
+				"buffer_size": 45,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 188.0,
+		"history":
+		[
+			"exit",
+			"cd",
+			"source ~/chak/bin/activate",
+			"python News.py"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/stan_wp/Documents/python/homework",
+		"/home/stan_wp/Documents/python/homework/mafs_5040"
+	],
+	"file_history":
+	[
+		"/home/stan_wp/Documents/python/homework/mc_bond_options.py",
+		"/home/stan_wp/Documents/python/homework/homework.sublime-project",
+		"/home/stan_wp/Documents/python/newsVF/settings.py",
+		"/home/stan_wp/Documents/python/newsVF/newsVF_01.py",
+		"/home/stan_wp/Documents/python/newsVF/crawler/store_news.py",
+		"/home/stan_wp/Documents/python/newsVF/crawler/tencent_news_crawler.py",
+		"/home/stan_wp/Documents/python/newsVF/crawler/tushare_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/text_analysis/sentimental_calculation.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_process.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/crawler/store_news.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_VF.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/crawler/tushare_crawler.py",
+		"/home/stan_wp/.config/sublime-text-3/Packages/auto-save/README.md",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/crawler/tencent_news_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/crawler/prewash_tags.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/stock_crawler/tushare_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/stock_crawler/store_data.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_crawler/tencent_news_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_crawler/prewash_tags.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_crawler/store_data.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/settings.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_crawler/News.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/news_crawler/data_load.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/crawlerload.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/companiesload.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/set_sqlite.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/financial_news_crawler/store_data.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/financial_news_crawler/prewash_tags.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/financial_news_crawler/tencent_news_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/financial_news_crawler/data_load.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/__init__.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_analysis/text_analysis/sentimental_calculation.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/financial_news_crawler/News.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/stock_crawler/tushare_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/stock_crawler/store_data.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/stockload.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/newsload.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/sentimental_analysis/sentimental_calculation.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/financial_news_crawler/store_data.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/financial_news_crawler/tencent_news_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_analysis/__init__.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/financial_news_crawler/prewash_tags.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/stock_crawler/__init__.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/stock_crawler/stock_crawler.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_list.py",
+		"/home/stan_wp/Documents/python/rice_quant/Dynamic Asset Allocation/homework1.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/companyload_SHE.py",
+		"/home/stan_wp/.config/sublime-text-3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/home/stan_wp/.config/sublime-text-3/Packages/Python Flake8 Lint/Default (Linux).sublime-keymap",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/companyload_SSE.py",
+		"/home/stan_wp/Documents/python/mafs_5220/newsVF/financial_news_crawler/__init__.py",
+		"/home/stan_wp/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/home/stan_wp/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
+		"/home/stan_wp/Documents/python/MAFS-5220/Volatility Forecast in SSE&SHE with Machine Learning and Sentimental Analysis/financial_news_crawler/store_data.py",
+		"/home/stan_wp/Documents/chak.sublime-project"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "mafs_5040/mc_bond_options.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "homework.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"per",
+				"financial_news_crawler/prewash_tags.py"
+			],
+			[
+				"sto",
+				"financial_news_crawler/store_data.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/chak.sublime-project"
+			],
+			[
+				"ja",
+				"~/Documents/java/mafs_5260.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 229.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
