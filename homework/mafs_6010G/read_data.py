@@ -3,18 +3,22 @@ import os
 import re
 
 home_path = '/home/stan_wp/Documents/data/'
-path = home_path + '/SH601398/'
-files = os.listdir(path)
-re_date = re.compile(r'\d{8}')
-trade_date = []
-for file in files:
-    if 'trade' in file:
-        temp_date = re_date.findall(file)[0]
-        trade_date.append(temp_date)
 
+def get_trade_date(code='600519'):
+    path = home_path + 'SH{}/'.format(code)
+    files = os.listdir(path)
+    re_date = re.compile(r'\d{8}')
+    trade_date = []
+    for file in files:
+        if 'trade' in file:
+            temp_date = re_date.findall(file)[0]
+            trade_date.append(temp_date)
+    return trade_date
 
 def read_all_files(file_type='trade',code='600519'):
     raw = pd.DataFrame()
+    trade_date = get_trade_date(code)
+    print(len(trade_date))
     for date in trade_date:
         raw = raw.append(read_one_file(file_type,code,date))
         print('finished {}'.format(date))
@@ -48,6 +52,7 @@ def combine_one(code='600519', tdate='20130104'):
 
 def combine_all(code='600519'):
     output = pd.DataFrame()
+    trade_date = get_trade_date(code)
     for date in trade_date:
         # print(date)
         raw = combine_one(code, date)

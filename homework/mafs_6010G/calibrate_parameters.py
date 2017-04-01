@@ -5,14 +5,6 @@ import os
 import re
 
 
-path = '/home/stan_wp/Documents/data/SH600519/'
-files = os.listdir(path)
-re_date = re.compile(r'\d{8}')
-trade_date = []
-for file in files:
-    if 'trade' in file:
-        temp_date = re_date.findall(file)[0]
-        trade_date.append(temp_date)
 except_date=[datetime.datetime(2013,2,18,9,25,0),datetime.datetime(2013,2,18,9,30,0),
             datetime.datetime(2013,2,18,9,35,0),datetime.datetime(2013,6,17,13,0,0)]
 
@@ -20,6 +12,7 @@ def isValid(date):
     if date in except_date:
         return False
     tdate = date.strftime("%Y%m%d")
+    trade_date = rd.get_trade_date()
     if tdate in trade_date:
         morning_start = datetime.datetime.strptime(tdate + " 09:25:00", "%Y%m%d %H:%M:%S")
         morning_end = datetime.datetime.strptime(tdate + " 11:30:00", "%Y%m%d %H:%M:%S")
@@ -51,7 +44,7 @@ def parameters(origin,tao='5min'):
     # create a new column imb
     raw = raw.assign(imb=lambda x: x.BS * x.ntrade)
     # downsampling with given tao
-    resample_raw = raw['imb'].resample(tao).agg({'number': np.size, 'imb': np.sum})
+    resample_raw = raw['imb'].resample(tao,label='left').agg({'number': np.size, 'imb': np.sum})
     # drop the data whose time is from 11:30-13:00
     resample_raw = resample_raw.select(isValid)
 
@@ -67,3 +60,14 @@ def parameters(origin,tao='5min'):
     print(imb_mean, imb_var)
 
     return resample_raw
+
+
+def rou(data,number=1000):
+    # data = raw['BS']
+    corr = []
+    x = []
+    for i in range(1,number+1):
+        corr.append(np.log(data.autocorr(i)))
+        x.append(i)
+    return corr,x
+
