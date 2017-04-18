@@ -10,6 +10,7 @@ article_path = 'data/article.txt'
 number_path = 'data/numberOfNews.csv'
 sample_path = 'data/sample.txt'
 value_path = 'data/value.csv'
+pro_path = 'data/dataset.csv'
 
 # show where to get related data
 SHE_path = 'source/SHE.csv'
@@ -82,3 +83,11 @@ def get_sentiment_files(name):
 
 def get_value_path():
     return home_path + value_path
+
+
+def get_pro_path():
+    return home_path + pro_path
+
+
+def get_home_path():
+    return home_path
