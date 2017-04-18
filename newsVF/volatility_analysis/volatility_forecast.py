@@ -14,7 +14,7 @@ def model_select(input_col=['p_var', 'mean_return', 'sum_abs_sent']):
     # validation
     svr = SVR(kernel='rbf', C=1e3, gamma=0.1)
     rfr = RFreg()
-    val_num = 4  # int(len(indexs)/2)
+    val_num = int(len(indexs) / 2)
     # first train data
     train_input = data[data.index == indexs[0]].set_index('code')[input_col]
     train_output = data[data.index == indexs[1]].set_index('code')['p_var']
@@ -30,8 +30,8 @@ def model_select(input_col=['p_var', 'mean_return', 'sum_abs_sent']):
         test['p_var_pre'] = svr.predict(test[input_col])
         test['p_var_pre2'] = rfr.predict(test[input_col])
         # get the R squared
-        print(svr.score(train[input_col], train.p_var_out.values).round(4), 
-            rfr.score(train[input_col], train.p_var_out.values).round(4))
+        print(svr.score(train[input_col], train.p_var_out.values).round(4),
+                rfr.score(train[input_col], train.p_var_out.values).round(4))
         # calculate the right rate for predicting trend
         test = test.assign(trend=0)
         test.ix[(test.p_var_out>=test.p_var)&(test.p_var_pre>=test.p_var),'trend'] = 1
