@@ -64,10 +64,19 @@
 	"buffers":
 	[
 		{
-			"file": "mafs_5040/mc_bond_options.py",
+			"file": "mafs_6010G/assignment_3/read_data.py",
 			"settings":
 			{
-				"buffer_size": 45,
+				"buffer_size": 474,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mafs_6010G/assignment_3/response_function.py",
+			"settings":
+			{
+				"buffer_size": 127,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -114,10 +123,22 @@
 	"expanded_folders":
 	[
 		"/home/stan_wp/Documents/python/homework",
-		"/home/stan_wp/Documents/python/homework/mafs_5040"
+		"/home/stan_wp/Documents/python/homework/mafs_6010G",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_2",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_3"
 	],
 	"file_history":
 	[
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_2/read_data.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010J/Homework 3/data_process.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010J/Homework 3/Fama_French_example_1.R",
+		"/home/stan_wp/Documents/python/homework/mafs_6010J/Homework 3/Cross_sectional_example.R",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/read_data.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/ret_imb.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/Lee_Ready.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/calibrate_parameters.py",
+		"/home/stan_wp/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/home/stan_wp/Documents/python/homework/mafs_5040/mc_bond_options.py",
 		"/home/stan_wp/Documents/python/homework/mc_bond_options.py",
 		"/home/stan_wp/Documents/python/homework/homework.sublime-project",
 		"/home/stan_wp/Documents/python/newsVF/settings.py",
@@ -170,7 +191,6 @@
 		"/home/stan_wp/.config/sublime-text-3/Packages/Python Flake8 Lint/Default (Linux).sublime-keymap",
 		"/home/stan_wp/Documents/python/mafs_5220/newsVF/data_load/companyload_SSE.py",
 		"/home/stan_wp/Documents/python/mafs_5220/newsVF/financial_news_crawler/__init__.py",
-		"/home/stan_wp/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
 		"/home/stan_wp/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
 		"/home/stan_wp/Documents/python/MAFS-5220/Volatility Forecast in SSE&SHE with Machine Learning and Sentimental Analysis/financial_news_crawler/store_data.py",
 		"/home/stan_wp/Documents/chak.sublime-project"
@@ -208,24 +228,52 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "mafs_5040/mc_bond_options.py",
+					"file": "mafs_6010G/assignment_3/read_data.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45,
+						"buffer_size": 474,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21,
-								21
+								457,
+								457
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mafs_6010G/assignment_3/response_function.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
 							]
 						],
 						"settings":

@@ -43,7 +43,7 @@ def parameters(origin,tao='5min'):
     raw['ntrade'] = raw['ntrade'] / raw.ntrade.mean()
     # create a new column imb
     raw = raw.assign(imb=lambda x: x.BS * x.ntrade)
-    # downsampling with given tao
+    # downsampling with given tau
     resample_raw = raw['imb'].resample(tao,label='left').agg({'number': np.size, 'imb': np.sum})
     # drop the data whose time is from 11:30-13:00
     resample_raw = resample_raw.select(isValid)

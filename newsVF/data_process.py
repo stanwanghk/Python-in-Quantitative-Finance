@@ -43,13 +43,6 @@ def number_of_news():
     for raw in raws:
         companies.append(raw[0])
 
-    # count the number of news of given sample
-    # fsample = settings.get_sample_path()
-    # samples = open(fsample)
-    # for line in samples:
-    #     raw = line.split(',')
-    #     companies.append(raw[0])
-
     total_number = 0
     total_nocontent = 0
     total_none = 0
