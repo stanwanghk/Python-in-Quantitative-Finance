@@ -1,10 +1,11 @@
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor as RFR
 import pandas as pd
+import numpy as np
 import settings
 
 
-def garch(input_col=['p_var', 'mean_return', 'sum_abs_sent'],
+def garch(input_col=['p_var', 'mean_return_square', 'sum_abs_sent_square'],
           file_name='modified_garch'):
     # data = resample_data.process_all_codes()
     data = pd.read_csv(settings.get_home_path() +
@@ -13,18 +14,18 @@ def garch(input_col=['p_var', 'mean_return', 'sum_abs_sent'],
     file = open(settings.get_home_path() +
                 'data/{}.csv'.format(file_name), 'w')
     file.write(
-        "time_winodw_forecast_output,time_window_forecast_input,\
-        number of train,number of test,adj_svr_R^2,adj_rfr_R^2,\
-        svr_trend,rfr_trend\n")
+        "time_winodw_forecast_output,time_window_forecast_input,number of train,number of test,adj_svr_R^2,adj_rfr_R^2,svr_trend,rfr_trend\n")
 
     svr = SVR(kernel='rbf', C=64, gamma=1 / 3)
-    rfr = RFR(max_features=1)
-
+    rfr = RFR(max_features=1,warm_start=False)
+    origin_col=['p_var','mean_return','sum_abs_sent']
     # the first train data
-    train_input = data[data.index == indexs[0]].set_index('code')[input_col]
+    train_input = data[data.index == indexs[0]].set_index('code')[origin_col]
     train_output = data[data.index == indexs[1]].set_index('code')['p_var']
     train = train_input.join(train_output, rsuffix='_out')
     train = train.dropna()
+    train['mean_return_square'] = np.square(train['mean_return'])
+    train['sum_abs_sent_square'] = np.square(train['sum_abs_sent'])
     for i in range(1, len(indexs) - 1):
         # the number of companies and features in training set
         num = len(train.index)
@@ -32,12 +33,14 @@ def garch(input_col=['p_var', 'mean_return', 'sum_abs_sent'],
         # train the model
         svr.fit(train[input_col], train.p_var_out.values)
         rfr.fit(train[input_col], train.p_var_out.values)
-        # test data
-        test_input = data[data.index == indexs[i]].set_index('code')[input_col]
+        # predict data
+        test_input = data[data.index == indexs[i]].set_index('code')[origin_col]
         test_output = data[data.index == indexs[
             i + 1]].set_index('code')['p_var']
         test = test_input.join(test_output, rsuffix='_out')
         test = test.dropna()
+        test['mean_return_square'] = np.square(test['mean_return'])
+        test['sum_abs_sent_square'] = np.square(test['sum_abs_sent'])
         num_test = len(test.index)
         # predict
         test['p_var_pre'] = svr.predict(test[input_col])
