@@ -67,7 +67,7 @@
 			"file": "mafs_6010G/assignment_3/read_data.py",
 			"settings":
 			{
-				"buffer_size": 474,
+				"buffer_size": 482,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -76,7 +76,7 @@
 			"file": "mafs_6010G/assignment_3/response_function.py",
 			"settings":
 			{
-				"buffer_size": 127,
+				"buffer_size": 1228,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -129,6 +129,8 @@
 	],
 	"file_history":
 	[
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_3/size_analysis.py",
+		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_3/slope_analysis.py",
 		"/home/stan_wp/Documents/python/homework/mafs_6010G/assignment_2/read_data.py",
 		"/home/stan_wp/Documents/python/homework/mafs_6010J/Homework 3/data_process.py",
 		"/home/stan_wp/Documents/python/homework/mafs_6010J/Homework 3/Fama_French_example_1.R",
@@ -237,15 +239,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 474,
+						"buffer_size": 482,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								457,
-								457
+								22,
+								22
 							]
 						],
 						"settings":
@@ -265,15 +267,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 127,
+						"buffer_size": 1228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								127,
-								127
+								96,
+								96
 							]
 						],
 						"settings":
