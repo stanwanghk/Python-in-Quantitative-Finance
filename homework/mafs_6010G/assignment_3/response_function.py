@@ -22,23 +22,17 @@ def response_group(raw,l_range=range(501),path=None):
     file.close()
 
 
-def response_all(data,l_range=range(501),save=False):
+def response_all(data,l_range=range(1,501),save=False):
     # data = data[(data.BP1!=0)&(data.SP1!=0)]
+    data['date_lag'] = data.Date
     res = {}
-    dates = data.index
-    dates = dates.drop_duplicates()
     for l in l_range:
-        num = 0
-        ave = 0.0
-        for date in dates:
-            raw = data[data.index==date].copy()
-            raw.loc[:,['VWAP']] = raw.VWAP.shift(-l).values
-            responsed = raw.dropna().copy()
-            responsed.loc[:,'influence'] = (responsed.VWAP-responsed.midQ)*responsed.Sign/(responsed.SP1-responsed.BP1)
-            ave = (ave*num+responsed.influence.sum())/(num+len(responsed.influence))
-            num += len(responsed.influence)
-        res[l] = ave
-        print('finish: lag of ',l,res[l])
+        data.loc[:,['VWAP','date_lag']] = data[['VWAP','date_lag']].shift(-1)
+        responsed = data[(data.group==1)&(data.Date==data.date_lag)].dropna().copy()
+        responsed['influence'] = (responsed.VWAP-responsed.midQ)*responsed.Sign / (responsed.SP1-responsed.BP1)
+        res[l] = responsed.influence.mean()
+        if (l%100==0):
+            print("finish: ",l)
     if save:
         file = open(home_path+"Q2.csv",'w')
         for j in range(len(res)):
