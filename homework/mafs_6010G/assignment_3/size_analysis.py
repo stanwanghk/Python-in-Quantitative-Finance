@@ -20,7 +20,6 @@ def group_load(raw,group=[0,2,5,10,15,20,30,40,55,90,100000]):
 
 
 def plot_data(group=[0,2,5,10,15,20,30,40,55,90,100000]):
-
     plt.figure(figsize=(15,5),dpi=100)
     for i in range(len(group)-1):
         # plt.figure(i)
