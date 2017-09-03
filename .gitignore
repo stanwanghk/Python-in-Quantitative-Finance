@@ -7,4 +7,5 @@ useless.*
 *.pyc
 *.sublime-project
 *.sublime-workspace
+.Rhistory
 

@@ -6,7 +6,7 @@ function alpha = portfolio(V,mu,alpha_0,target_ret)
     options.LargeScale = 'off';
     
     n = length(mu);
-    div = 0.5;
+    div = 0.05;
     turnover = 0.4;
     H = [[V,-V];[-V,V]];
     f = alpha_0*[V,-V];
@@ -21,6 +21,7 @@ function alpha = portfolio(V,mu,alpha_0,target_ret)
     A = [ones(1,2*n);[eye(n),-eye(n)];[-eye(n),eye(n)]];
     b = [turnover;div*ones(n,1)-alpha_0';alpha_0'];
     % portfolio with the constraints given
-    x = quadprog(H,f',A,b,Aeq,beq,LB,[],[],options);
+    [x,exitflag] = quadprog(H,f',A,b,Aeq,beq,LB,[],[],options);
     alpha = x(1:n)-x(n+1:2*n)+alpha_0';
+    disp(exitflag);
 end

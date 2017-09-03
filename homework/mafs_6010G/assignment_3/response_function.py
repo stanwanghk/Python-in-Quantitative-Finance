@@ -28,7 +28,7 @@ def response_all(data,l_range=range(1,501),save=False):
     res = {}
     for l in l_range:
         data.loc[:,['VWAP','date_lag']] = data[['VWAP','date_lag']].shift(-1)
-        responsed = data[(data.group==1)&(data.Date==data.date_lag)].dropna().copy()
+        responsed = data[(data.Date==data.date_lag)].dropna().copy()
         responsed['influence'] = (responsed.VWAP-responsed.midQ)*responsed.Sign / (responsed.SP1-responsed.BP1)
         res[l] = responsed.influence.mean()
         if (l%100==0):

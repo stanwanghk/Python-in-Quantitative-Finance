@@ -1,11 +1,11 @@
 function alpha = initialpos(V,mu,target_ret)
-  options = optimset('quadprog');
+    options = optimset('quadprog');
     options.Display = 'off';
     options.LargeScale = 'off';
     
     n = length(mu);
-    div = 0.5;
-    H = V;
+    %disp(n);
+    div = 0.05;
     
     Aeq = [mu;ones(1,n)];
     beq = [target_ret;1];
@@ -15,6 +15,6 @@ function alpha = initialpos(V,mu,target_ret)
     % None of the stock's weights can exceed 5%
     UB = div * ones(n,1);
     % portfolio with the constraints given
-    x = quadprog(H,[],[],[],Aeq,beq,LB,UB,[],options);
-    alpha = x(1:n);
+    [alpha,exitflag] = quadprog(V,[],[],[],Aeq,beq,LB,UB,[],options);
+    disp(exitflag);
 end
